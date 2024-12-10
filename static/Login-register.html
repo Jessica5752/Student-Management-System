@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="formTitle">Login</h1>
+
+        <!-- User Login Form -->
+        <div id="loginForm" class="form-section active">
+            <form onsubmit="return login()">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" required>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <div class="navigation">
+                <p>Don't have an account? <a href="#" onclick="toggleForms('register')">Register here</a></p>
+                <p>Admin? <a href="#" onclick="toggleForms('admin')">Login as Admin</a></p>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" class="form-section">
+            <form onsubmit="return register()">
+                <label for="registerUsername">Username:</label>
+                <input type="text" id="registerUsername" required>
+
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" required>
+
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <div class="navigation">
+                <p>Already have an account? <a href="#" onclick="toggleForms('login')">Login here</a></p>
+            </div>
+        </div>
+
+        <!-- Admin Login Form -->
+        <div id="adminForm" class="form-section">
+            <form onsubmit="return adminLogin()">
+                <label for="adminUsername">Admin Username:</label>
+                <input type="text" id="adminUsername" required>
+
+                <label for="adminPassword">Password:</label>
+                <input type="password" id="adminPassword" required>
+
+                <button type="submit">Admin Login</button>
+            </form>
+            <div class="navigation">
+                <p>Go back to <a href="#" onclick="toggleForms('login')">User Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms(formType) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const adminForm = document.getElementById('adminForm');
+            const formTitle = document.getElementById('formTitle');
+
+            loginForm.classList.remove('active');
+            registerForm.classList.remove('active');
+            adminForm.classList.remove('active');
+
+            if (formType === 'register') {
+                registerForm.classList.add('active');
+                formTitle.textContent = 'Register';
+            } else if (formType === 'admin') {
+                adminForm.classList.add('active');
+                formTitle.textContent = 'Admin Login';
+            } else {
+                loginForm.classList.add('active');
+                formTitle.textContent = 'Login';
+            }
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Placeholder login logic
+            alert(`Login successful for ${username}!`);
+            localStorage.setItem('username', username);
+            window.location.href = 'loginhome.html';
+            return false;
+        }
+
+        function register() {
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+
+            // Placeholder registration logic
+            alert(`Registration successful for ${username}!`);
+            localStorage.setItem('username', username);
+            window.location.href = 'home.html';
+            return false;
+        }
+
+        function adminLogin() {
+            const adminUsername = document.getElementById('adminUsername').value;
+            const adminPassword = document.getElementById('adminPassword').value;
+
+            // Hardcoded Admin Credentials
+            const correctAdminUsername = "admin";
+            const correctAdminPassword = "admin123";
+
+            if (adminUsername === correctAdminUsername && adminPassword === correctAdminPassword) {
+                alert("Admin login successful!");
+                localStorage.setItem('admin', adminUsername);
+                window.location.href = 'admindashboard.html';  // Redirect to admin page
+            } else {
+                alert("Invalid Admin Credentials.");
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

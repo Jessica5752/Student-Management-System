@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - Extracurricular Management System</title>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light background color */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        header {
+            background-color: #4CAF50; /* Header background color */
+            color: white; /* Header text color */
+            padding: 15px 0; /* Header padding */
+            text-align: center; /* Center header text */
+        }
+        nav {
+            margin: 20px 0; /* Navigation margin */
+        }
+        nav a {
+            margin: 0 15px; /* Margin for nav links */
+            text-decoration: none; /* Remove underline from links */
+            color: white; /* Link color */
+        }
+        .container {
+            max-width: 800px; /* Max width for container */
+            margin: auto; /* Center the container */
+            background: white; /* Background color for container */
+            padding: 20px; /* Padding for container */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+        h2 {
+            color: #007bff; /* Color for h2 */
+            text-align: center; /* Center h2 */
+        }
+        .student-list {
+            margin: 20px 0; /* Margin for student list */
+            padding: 10px; /* Padding for student list */
+            border: 1px solid #007bff; /* Border for student list */
+            border-radius: 5px; /* Rounded corners for student list */
+        }
+        .student {
+            padding: 10px; /* Padding for individual student */
+            border-bottom: 1px solid #ccc; /* Bottom border for student */
+        }
+        .student:last-child {
+            border-bottom: none; /* Remove bottom border for last student */
+        }
+        .button-group {
+            text-align: center; /* Center buttons */
+            margin-top: 20px; /* Margin for button group */
+        }
+        .button-group button {
+            background-color: #4CAF50; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            padding: 15px 20px; /* Padding for button */
+            font-size: 16px; /* Font size for button */
+            border-radius: 5px; /* Rounded corners for button */
+            cursor: pointer; /* Pointer cursor for button */
+            transition: background-color 0.3s; /* Transition for button */
+            margin: 5px; /* Margin between buttons */
+        }
+        .button-group button:hover {
+            background-color: gray; /* Darker blue on hover */
+        }
+        footer {
+            text-align: center; /* Center footer text */
+            padding: 10px 0; /* Padding for footer */
+            background-color: #333; /* Footer background color */
+            color: white; /* Footer text color */
+            position: relative; /* Position footer */
+            bottom: 0; /* Align to bottom */
+            width: 100%; /* Full width for footer */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Management</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="club.html">Clubs</a>
+            <a href="Contactus.html">Contact</a>
+            <a href="Login-register.html">Login/Register</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Manage Student Profiles</h2>
+        <div class="student-list">
+            <div class="student">
+                <strong>John Doe</strong><br>
+                Email: johndoe@example.com<br>
+                Joined: September 12, 2023
+            </div>
+            <div class="student">
+                <strong>Jane Smith</strong><br>
+                Email: janesmith@example.com<br>
+                Joined: September 15, 2023
+            </div>
+            <div class="student">
+                <strong>Emily Johnson</strong><br>
+                Email: emilyjohnson@example.com<br>
+                Joined: September 18, 2023
+            </div>
+            <div class="student">
+                <strong>Michael Brown</strong><br>
+                Email: michaelbrown@example.com<br>
+                Joined: September 20, 2023
+            </div>
+        </div>
+        <div class="button-group">
+            <button onclick="window.location.href='addstudent.html'">Add New Student</button>
+            <button onclick="window.location.href='updateprofile.html'">Edit Student</button>
+            <button onclick="window.location.href='deleteprofile.html'">Delete Student</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Extracurricular Management System | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

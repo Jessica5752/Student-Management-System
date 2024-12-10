@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            background-color: #4CAF50;
+            transition: 0.3s;
+        }
+
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .club-list {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #e7f3ff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        li:hover {
+            background-color: #f1f1f1; /* Change background on hover */
+        }
+
+        button {
+            background-color: #4CAF50; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            padding: 10px 15px; /* Padding for button */
+            margin: 5px; /* Margin for button */
+            border-radius: 5px; /* Rounded corners for button */
+            cursor: pointer; /* Pointer cursor for button */
+            font-size: 16px; /* Font size for button */
+            transition: background-color 0.3s; /* Transition for button */
+        }
+
+        button:hover {
+            background-color: #4CAF50; /* Darker blue on hover */
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px; /* Add margin to footer */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clubs Management</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="student-management-system.html">Student Management</a>
+            <a href="events.html">Events</a>
+            <a href="club.html">Clubs</a>
+            <a href="Contactus.html">Contact</a>
+            <a href="Login-register.html">Login/Register</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Available Clubs</h2>
+        <div class="club-list">
+            <ul id="clubList">
+                <li>
+                    <span>Art Club</span>
+                    <button onclick="viewClubDetails(1)">View Details</button>
+                </li>
+                <li>
+                    <span>Science Club</span>
+                    <button onclick="viewClubDetails(2)">View Details</button>
+                </li>
+                <li>
+                    <span>Drama Club</span>
+                    <button onclick="viewClubDetails(3)">View Details</button>
+                </li>
+                <li>
+                    <span>Asian Culture Club</span>
+                    <button onclick="viewClubDetails(4)">View Details</button>
+                </li>
+                <li>
+                    <span>Cricket Club</span>
+                    <button onclick="viewClubDetails(5)">View Details</button>
+                </li>
+                <li>
+                    <span>Basketball Club</span>
+                    <button onclick="viewClubDetails(6)">View Details</button>
+                </li>
+                <li>
+                    <span>Music Club</span>
+                    <button onclick="viewClubDetails(7)">View Details</button>
+                </li>
+                <li>
+                    <span>Photography Club</span>
+                    <button onclick="viewClubDetails(8)">View Details</button>
+                </li>
+                <li>
+                    <span>Film Club</span>
+                    <button onclick="viewClubDetails(9)">View Details</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navigation">
+            <button onclick="window.location.href='home.html'">Home</button>
+           
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2024 Extracurricular Management System | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function viewClubDetails(clubId) {
+            // Replace with the actual functionality to view club details
+            alert("Viewing details for club ID: " + clubId);
+        }
+    </script>
+</body>
+</html>

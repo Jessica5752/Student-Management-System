@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Club Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .club-header {
+            background-color: #28a745;
+            color: white;
+        }
+        .club-details-container {
+            margin-top: 40px;
+        }
+        .club-image {
+            width: 100%;
+            height: auto;
+        }
+        .club-info {
+            margin-top: 20px;
+        }
+        .club-events {
+            margin-top: 30px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header class="text-center p-4 bg-success text-white">
+    <h2>Club Details - <span th:text="${club.name}"></span></h2>
+</header>
+
+<div class="container club-details-container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Club Image -->
+            <img th:src="@{${club.logo}}" alt="Club Logo" class="club-image">
+        </div>
+        <div class="col-md-6">
+            <!-- Club Info -->
+            <div class="club-info">
+                <h4>Description:</h4>
+                <p th:text="${club.description}"></p>
+                <h4>Club President:</h4>
+                <p th:text="${club.president}"></p>
+                <h4>Contact Information:</h4>
+                <p th:text="${club.contact}"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Club Events Section -->
+    <div class="club-events">
+        <h4>Upcoming Events</h4>
+        <ul>
+            <li th:each="event : ${club.events}">
+                <span th:text="${event.date}"></span> - <span th:text="${event.name}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Club Members -->
+    <div class="club-members">
+        <h4>Club Members:</h4>
+        <ul>
+            <li th:each="member : ${club.members}">
+                <span th:text="${member.name}"></span> - <span th:text="${member.role}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Join Button -->
+    <div class="text-center mt-4">
+        <a th:href="@{/join-club/{id}(id=${club.id})}" class="btn btn-success btn-lg">Join the Club</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Student Extracurricular Management System
+</footer>
+
+</body>
+</html>

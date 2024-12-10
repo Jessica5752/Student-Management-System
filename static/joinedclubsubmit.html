@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Join Confirmation - Extracurricular Management System</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: green;
+            color: orange;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px 32px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Join a Club Confirmation</h1>
+    </header>
+
+    <div class="container">
+        <h2>Thank You for Joining!</h2>
+        <p>Your request to join the <strong id="clubName"></strong> has been successfully submitted!</p>
+        <p>We will notify you via email once your membership is confirmed.</p>
+        
+        <h3>Details of Your Submission</h3>
+        <p><strong>Name:</strong> <span id="studentName"></span></p>
+        <p><strong>ID Number:</strong> <span id="studentId"></span></p>
+        <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+        <p><strong>Year of Study:</strong> <span id="yearOfStudy"></span></p>
+        <p><strong>Branch:</strong> <span id="branch"></span></p>
+        
+        <button onclick="goBack()">Go Back</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Extracurricular Management System | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Function to extract data from URL parameters and display it
+        function displayConfirmation() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('studentName').textContent = urlParams.get('studentName');
+            document.getElementById('studentId').textContent = urlParams.get('studentid');
+            document.getElementById('studentEmail').textContent = urlParams.get('studentEmail');
+            document.getElementById('yearOfStudy').textContent = urlParams.get('Year of study');
+            document.getElementById('branch').textContent = urlParams.get('Branch');
+            document.getElementById('clubName').textContent = urlParams.get('club');
+        }
+
+        // Function to redirect back to the club join page
+        function goBack() {
+            window.location.href = 'joinaclub.html'; // Change to your join club page URL
+        }
+
+        // Call the function to display confirmation details
+        displayConfirmation();
+    </script>
+</body>
+</html>

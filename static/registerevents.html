@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Events</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            width: 60%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 15px 0 5px;
+        }
+        input[type="text"], input[type="email"], select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .event-list {
+            margin-bottom: 20px;
+        }
+        .event-list option {
+            padding: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Register for Events
+</header>
+
+<div class="container">
+    <h2>Choose an Event to Register</h2>
+    <form action="/submit-registration" method="post">
+        <label for="studentName">Full Name</label>
+        <input type="text" id="studentName" name="studentName" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+         <label for="Id number">Id number</label>
+        <input type="text" id="id number" name="Id number" placeholder="Enter your Id number" required>
+        
+        <label for="Year of study">Select n Year</label>
+        <select id="yearSelect" name="yearSelect" class="year-list" required>
+            <option value="">-- Select Year --</option>
+            <option value="Y-21">Y-21</option>
+                <option value="Y-22">Y-22</option>
+                <option value="Y-23">Y-23</option>
+                <option value="Y-24">Y-24</option>
+                </select>
+                
+       <label for="Branch">Select Branch</label>
+        <select id="branchSelect" name="BranchSelect" class="branch-list" required>
+                <option value="">-- Select Branch --</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="CSIT">CSIT</option>
+                <option value="EEE">EEE</option>
+                <option value="BBA">BBA</option>
+                <option value="AI&DS">AI&DS</option>
+            <!-- Add more events dynamically -->
+        </select>
+
+        <label for="eventSelect">Select an Event</label>
+        <select id="eventSelect" name="eventSelect" class="event-list" required>
+            <option value="">-- Select Event --</option>
+            <option value="SAMYAK-National wide fest">SAMYAK-National wide fest</option>
+            <option value="musicConcert">Music Concert</option>
+            <option value="Ethnic Day">Ethnic Day</option>
+            <option value="SIL Events">SIL Events</option>
+            <option value="Volunteer Opportunities">Volunteer Opportunities</option>
+            <!-- Add more events dynamically -->
+        </select>
+
+        <button type="submit">Register</button><br>
+                 <button class="button" onclick="window.location.href='home.html'">Home</button>
+        
+    </form>
+</div>
+
+<footer>
+    © 2024 Student Extracurricular Management System
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Profile</title>
+    <link rel="stylesheet" href="student-management-system.css">
+    
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50; /* Dark Green */
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff; /* Bootstrap Blue */
+            border: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker Blue on hover */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Profile</h1>
+        <form id="createProfileForm">
+            <label for="studentId">Student ID:</label>
+            <input type="text" id="studentId" required>
+            
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="role">Role:</label>
+            <select id="role" required>
+                <option value="student">Student</option>
+                <option value="club_coordinator">Club Coordinator</option>
+                <option value="event_manager">Event Manager</option>
+            </select>
+            
+            <button type="button" onclick="createProfile()">Create Profile</button>
+        </form>
+        <div class="navigation">
+            <br><button onclick="window.location.href='student-management-system.html'">Home</button>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

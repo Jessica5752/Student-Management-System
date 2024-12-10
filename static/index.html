@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Extracurricular Management System</title>
+    <style>
+        body {
+            background-color: #f4f4f9; /* Light gray background */
+            color: #333; /* Dark text */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0; /* Reset margin */
+            padding: 0; /* Reset padding */
+        }
+
+        header {
+            background-color: #4CAF50; /* Blue header */
+            color: white; /* White text */
+            padding: 15px 0; /* Padding */
+            text-align: center; /* Center text */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+       
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            background-color: #4CAF50;
+            transition: 0.3s;
+        }
+
+
+        .container {
+            max-width: 800px; /* Max width */
+            margin: 40px auto; /* Centered margin */
+            background: white; /* White background */
+            padding: 20px; /* Padding */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            text-align: center; /* Center text */
+        }
+
+        h2 {
+            color: #4CAF50; /* Dark green for headings */
+        }
+
+        p {
+            line-height: 1.6; /* Line height */
+        }
+
+        .event-list,
+        .student-profiles {
+            margin: 20px 0; /* Margin */
+            padding: 20px; /* Padding */
+            border: 1px solid #007bff; /* Blue border */
+            border-radius: 8px; /* Rounded corners */
+            text-align: left; /* Left text alignment */
+        }
+        
+
+        .event-list h3,
+        .student-profiles h3 {
+            text-align: center; /* Center heading */
+            color: #333; /* Dark text for headings */
+            margin-bottom: 10px; /* Margin */
+        }
+
+        ul {
+            list-style-type: none; /* No bullets */
+            padding: 0; /* Reset padding */
+        }
+
+        ul li {
+            padding: 10px; /* Padding */
+            background-color: #e7f0ff; /* Light blue background */
+            margin-bottom: 10px; /* Margin */
+            border-radius: 5px; /* Rounded corners */
+        }
+       .student-profiles button {
+    background-color: #4CAF50; /* Green button */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 15px 32px; /* Padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    margin: 10px auto; /* Margin and center button */
+    transition: background-color 0.3s; /* Transition effect */
+    display: block; /* Make button a block element */
+}
+        
+
+        button,
+        .button {
+            background-color: #4CAF50; /* Blue button */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 15px 32px; /* Padding */
+            font-size: 16px; /* Font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            margin: 10px; /* Margin */
+            transition: background-color 0.3s, transform 0.2s; /* Transition effect */
+        }
+
+        button:hover,
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Lift effect */
+        }
+
+        .contact {
+            margin-top: 30px; /* Margin */
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 20px; /* Padding */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .contact h4 {
+            color: #333; /* Dark text */
+            margin-bottom: 10px; /* Margin */
+        }
+
+        .contact a {
+            color: blue; /* Blue links */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .contact a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        footer {
+            text-align: center; /* Center text */
+            padding: 20px 0; /* Padding */
+            background-color: #333; /* Blue footer */
+            color: white; /* White text */
+            position: relative; /* Position */
+            bottom: 0; /* Align to bottom */
+            width: 100%; /* Full width */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px; /* Padding */
+                margin: 15px; /* Margin */
+            }
+
+            button,
+            .button {
+                width: 100%; /* Full width buttons */
+                margin: 10px 0; /* Margin */
+            }
+
+            nav a {
+                display: block; /* Block display for links */
+                margin: 5px 0; /* Margin */
+                text-align: center; /* Center text */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Extracurricular Management System</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="student-management-system.html">Student Management</a>
+            <a href="events.html">Events</a>
+            <a href="club.html">Clubs</a>
+            <a href="Contactus.html">Contact</a>
+            <a href="Login-register.html">Login/Register</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Welcome to the Extracurricular Management System</h2>
+        <p>This platform helps students manage their extracurricular activities effectively. Stay organized and keep track of your participation in various clubs and events.</p>
+
+        <div class="event-list">
+            <h3>Upcoming Events</h3>
+            <ul>
+                <li>SAMYAK-National wide fest - October 4,5 2024</li>
+                <li>Ethinc Day - October 01, 2024</li>
+                <li>SIL Events - Ongoing</li>
+            </ul>
+        </div>
+
+        <div class="student-profiles">
+            <h3>Student Profiles</h3>
+            <p>Manage your profile and view others' profiles in the system. Make sure to keep your information up-to-date.</p>
+            <button onclick="window.location.href='manageprofiles.html'">Manage Profiles</button>
+        </div>
+
+        <button class="button" onclick="window.location.href='joinaclub.html'">Join a Club</button>
+        <button class="button" onclick="window.location.href='upcomingevnts.html'">View Upcoming Events</button>
+        <button class="button" onclick="window.location.href='profile.html'">Create Your Profile</button><br>
+        
+        <button class="button" onclick="window.location.href='home.html'">Home</button>
+                
+        
+        
+
+        <div class="contact">
+            <h4>Contact Us:</h4>
+            <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Extracurricular Management System | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

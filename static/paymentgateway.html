@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Payment Gateway</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            background-image: url('imagespro.jpg'); 
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            background-color: #4CAF50;
+            transition: 0.3s;
+        }
+
+        .payment-container {
+            width: 50%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .payment-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    STUDENT PAYMENT GATEWAY
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="student-management-system.html">Student Management</a>
+    <a href="events.html">Events</a>
+    <a href="club.html">Clubs</a>
+    <a href="Contactus.html">Contact</a>
+    <a href="Login-register.html">Login/Register</a>
+    <a href="notifications.html">Notifications</a>
+</nav>
+
+<div class="payment-container">
+    <h2>Make a Payment</h2>
+    <form action="/process-payment" method="POST" enctype="multipart/form-data">
+
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required>
+
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="club">Club:</label>
+        <input type="text" id="club" name="club" required>
+
+        <label for="amount">Payment Amount:</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+
+        <h3>Payment Details</h3>
+
+        <label for="cardName">Cardholder Name:</label>
+        <input type="text" id="cardName" name="cardName" required>
+
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required>
+
+        <label for="expDate">Expiry Date:</label>
+        <input type="month" id="expDate" name="expDate" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="password" id="cvv" name="cvv" maxlength="3" required>
+
+        <!-- Scanner/Upload Feature -->
+        <label for="fileUpload">Upload Payment Proof (PDF/Image):</label>
+        <input type="file" id="fileUpload" name="fileUpload" accept=".jpg, .jpeg, .png, .pdf" required>
+
+        <button type="submit">Make Payment</button>
+    </form>
+</div>
+
+<footer>
+    © 2024 Student Extracurricular Management System
+</footer>
+
+</body>
+</html>

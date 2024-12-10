@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: green;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            width: 70%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .form-column {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .form-column:last-child {
+            margin-right: 0;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"], input[type="email"], select, textarea, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .profile-pic {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-pic img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ccc;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Manage Your Profile
+</header>
+
+<div class="container">
+    <h2>Update Profile Information</h2>
+    <form id="profileForm" action="/update-profile" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+        <!-- Profile Picture -->
+        <div class="profile-pic">
+            <img src="default-pic.jpg" alt="Profile Picture" id="profilePicPreview">
+        </div>
+        
+        <!-- Profile Picture Upload -->
+        <div class="form-row">
+            <div class="form-column">
+                <label for="profilePic">Upload Profile Picture</label>
+                <input type="file" id="profilePic" name="profilePic" accept="image/*" onchange="previewImage(event)">
+            </div>
+        </div>
+
+        <!-- Form Row 1: ID Number & Full Name -->
+        <div class="form-row">
+            <div class="form-column">
+                <label for="idNumber">ID Number</label>
+                <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID number" required>
+            </div>
+            <div class="form-column">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+        </div>
+
+        <!-- Form Row 2: Email & Branch -->
+        <div class="form-row">
+            <div class="form-column">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-column">
+                <label for="branch">Branch</label>
+                <select id="branch" name="branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="computerScience">Computer Science</option>
+                    <option value="mechanical">Mechanical Engineering</option>
+                    <option value="civil">Civil Engineering</option>
+                    <option value="electrical">Electrical Engineering</option>
+                    <option value="electronics">Electronics & Communication</option>
+                    <option value="business">Business Management</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Form Row 3: Bio & Preferred Activity -->
+        <div class="form-row">
+            <div class="form-column">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" placeholder="Tell us something about yourself"></textarea>
+            </div>
+            <div class="form-column">
+                <label for="preferredActivity">Preferred Extracurricular Activity</label>
+                <select id="preferredActivity" name="preferredActivity" required>
+                    <option value="">Select an activity</option>
+                    <option value="sports">Sports</option>
+                    <option value="arts">Arts</option>
+                    <option value="music">Music</option>
+                    <option value="debate">Debate Club</option>
+                    <option value="communityService">Community Service</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Update Profile</button><br>
+        <button type="button" class="button" onclick="window.location.href='home.html'">Home</button>
+    </form>
+</div>
+
+<footer>
+    © 2024 Student Extracurricular Management System
+</footer>
+
+<script>
+    // Preview uploaded profile picture
+    function previewImage(event) {
+        const preview = document.getElementById('profilePicPreview');
+        preview.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    // Validate form before submission
+    function validateForm() {
+        const form = document.getElementById('profileForm');
+        const idNumber = document.getElementById('idNumber').value.trim();
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const branch = document.getElementById('branch').value;
+        const preferredActivity = document.getElementById('preferredActivity').value;
+
+        if (!idNumber || !fullName || !email || !branch || !preferredActivity) {
+            alert('Please fill out all required fields before submitting.');
+            return false; // Prevent form submission
+        }
+
+        // If validation passes, allow submission and redirect to the update page
+        window.location.href = 'profileupdate.html';
+        return true;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+const urlParams = new URLSearchParams(window.location.search);
+const clubId = urlParams.get("clubId");
+
+fetch(`http://localhost:8025/api/clubs/${clubId}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("clubName").innerText = data.name;
+        document.getElementById("clubDescription").innerText = data.description;
+    })
+    .catch(error => console.error("Error fetching club details:", error));

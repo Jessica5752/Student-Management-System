@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .notification {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification:last-child {
+            border-bottom: none; /* Remove border for the last item */
+        }
+
+        .notification-content {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .notification-time {
+            font-size: 12px;
+            color: gray;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Notifications</h1>
+        <div id="notificationList">
+            <!-- Notifications will be dynamically added here -->
+        </div>
+        <div class="navigation">
+            <button onclick="markAllAsRead()">Mark All as Read</button>
+            <button onclick="clearAllNotifications()">Clear All</button>
+ 
+        <button onclick="window.location.href='index.html'">Go to Home</button>
+        
+ 
+        
+        </div>
+    </div>
+
+    <script>
+        // Sample notifications data
+        const notifications = [
+            { message: 'You have a new message from John.', time: '2024-10-02 10:00' },
+            { message: 'Your registration was successful.', time: '2024-10-01 14:30' },
+            { message: 'Reminder: Meeting at 3 PM tomorrow.', time: '2024-10-01 09:00' },
+        ];
+
+        // Function to display notifications
+        function displayNotifications() {
+            const notificationList = document.getElementById('notificationList');
+            notificationList.innerHTML = ''; // Clear existing notifications
+
+            notifications.forEach((notification, index) => {
+                const notificationDiv = document.createElement('div');
+                notificationDiv.className = 'notification';
+                notificationDiv.innerHTML = `
+                    <div class="notification-content">
+                        <span>${notification.message}</span>
+                        <div class="notification-time">${notification.time}</div>
+                    </div>
+                    <button onclick="removeNotification(${index})">Delete</button>
+                `;
+                notificationList.appendChild(notificationDiv);
+            });
+        }
+
+        // Function to remove a notification
+        function removeNotification(index) {
+            notifications.splice(index, 1); // Remove the notification from the array
+            displayNotifications(); // Refresh the notification display
+        }
+
+        // Function to mark all notifications as read (could add more logic if needed)
+        function markAllAsRead() {
+            alert('All notifications marked as read!');
+            // Here you could add more logic to update notification status if needed
+        }
+
+        // Function to clear all notifications
+        function clearAllNotifications() {
+            notifications.length = 0; // Clear the notifications array
+            displayNotifications(); // Refresh the notification display
+        }
+        
+
+        // Initial call to display notifications
+        displayNotifications();
+        
+        
+    </script>
+    
+</body>
+</html>

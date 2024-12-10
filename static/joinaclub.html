@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join a Club - Extracurricular Management System</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: green;
+            color: orange;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Join a Club</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="student-management-system.html">Student Management</a>
+        <a href="events.html">Events</a>
+        <a href="club.html">Clubs</a>
+        <a href="Contactus.html">Contact</a>
+        <a href="Login-register.html">Login/Register</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Join Your Favorite Club</h2>
+    <p>Please fill out the form below to join a club.</p>
+
+    <form id="clubForm">
+        <input type="text" name="studentName" placeholder="Your Name" required>
+        <input type="text" name="studentid" placeholder="Your ID Number" required>
+        <input type="email" name="studentEmail" placeholder="Your Email" required>
+
+        <select name="YearOfStudy" required>
+            <option value="">Select Year of Study</option>
+            <option value="Y-21">Y-21</option>
+            <option value="Y-22">Y-22</option>
+            <option value="Y-23">Y-23</option>
+            <option value="Y-24">Y-24</option>
+        </select>
+
+        <select name="Branch" required>
+            <option value="">Select Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="CSIT">CSIT</option>
+            <option value="EEE">EEE</option>
+            <option value="BBA">BBA</option>
+            <option value="AI&DS">AI&DS</option>
+        </select>
+
+        <select name="club" required>
+            <option value="">Select a Club</option>
+            <option value="Music">Music Club</option>
+            <option value="Sports">Sports Club</option>
+            <option value="Drama">Drama Club</option>
+            <option value="Art">Art Club</option>
+            <option value="Science">Science Club</option>
+            <option value="Literature">Literature Club</option>
+        </select>
+
+        <button type="button" onclick="makePayment()">Make Payment</button>
+        <button type="submit" id="joinBtn" disabled>Join Club</button>
+        <button type="button" onclick="window.location.href='index.html'">Back</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Extracurricular Management System | All Rights Reserved</p>
+</footer>
+
+<script>
+    let isPaymentDone = false;
+
+    // Simulate Payment Process
+   function makePayment() {
+    // Redirect to the payment gateway page
+    window.location.href = "paymentgateway.html";
+
+    // Simulate payment success after returning from the payment gateway
+    setTimeout(() => {
+        alert("Payment Successful!");
+        isPaymentDone = true;
+        document.getElementById("joinBtn").disabled = false;
+    }, 3000);  // Simulating delay for payment process
+}
+
+    // Handle Form Submission
+    document.getElementById("clubForm").onsubmit = function(event) {
+        if (!isPaymentDone) {
+            alert("Please complete the payment before joining the club.");
+            event.preventDefault(); // Prevent form submission
+        }
+    };
+</script>
+</body>
+</html>

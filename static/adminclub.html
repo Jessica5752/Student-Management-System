@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .club-list {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .club-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .club-item:last-child {
+            border-bottom: none;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Club Management</h1>
+        <form id="clubForm" onsubmit="return addClub()">
+            <label for="clubName">Club Name:</label>
+            <input type="text" id="clubName" required>
+
+            <label for="clubDescription">Description:</label>
+            <textarea id="clubDescription" rows="4" required></textarea>
+
+            <label for="clubAdvisor">Club Advisor:</label>
+            <input type="text" id="clubAdvisor" required>
+
+            <label for="clubMembers">Number of Members:</label>
+            <input type="number" id="clubMembers" min="1" required>
+
+            <button type="submit">Add Club</button>
+        </form>
+
+        
+
+        <div class="club-list" id="clubList">
+            <h2>Existing Clubs</h2>
+            <div class="club-list">
+            <ul id="clubList">
+                <li>
+                    <span>Art Club</span>
+                    <button onclick="viewClubDetails(1)">View Details</button>
+                </li>
+                <li>
+                    <span>Science Club</span>
+                    <button onclick="viewClubDetails(2)">View Details</button>
+                </li>
+                <li>
+                    <span>Drama Club</span>
+                    <button onclick="viewClubDetails(3)">View Details</button>
+                </li>
+                <li>
+                    <span>Asian Culture Club</span>
+                    <button onclick="viewClubDetails(4)">View Details</button>
+                </li>
+                <li>
+                    <span>Cricket Club</span>
+                    <button onclick="viewClubDetails(5)">View Details</button>
+                </li>
+                <li>
+                    <span>Basketball Club</span>
+                    <button onclick="viewClubDetails(6)">View Details</button>
+                </li>
+                <li>
+                    <span>Music Club</span>
+                    <button onclick="viewClubDetails(7)">View Details</button>
+                </li>
+                <li>
+                    <span>Photography Club</span>
+                    <button onclick="viewClubDetails(8)">View Details</button>
+                </li>
+                <li>
+                    <span>Film Club</span>
+                    <button onclick="viewClubDetails(9)">View Details</button>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="navigation">
+        <button onclick="window.location.href='admindashboard.html'">Back to Dashboard</button>
+    </div>
+    </div>
+
+    <script>
+        const clubs = []; // Array to hold club data
+
+        function addClub() {
+            const name = document.getElementById('clubName').value;
+            const description = document.getElementById('clubDescription').value;
+            const advisor = document.getElementById('clubAdvisor').value;
+            const members = document.getElementById('clubMembers').value;
+
+            // Create a new club object and add it to the array
+            const club = { name, description, advisor, members };
+            clubs.push(club);
+
+            // Update the club list display
+            displayClubs();
+
+            // Reset the form after submission
+            document.getElementById('clubForm').reset();
+            return false; // Prevent form submission for demo purposes
+        }
+        
+
+        function displayClubs() {
+            const clubList = document.getElementById('clubList');
+            clubList.innerHTML = '<h2>Existing Clubs</h2>'; // Clear existing list header
+
+            clubs.forEach((club, index) => {
+                const clubItem = document.createElement('div');
+                clubItem.className = 'club-item';
+                clubItem.innerHTML = `
+                    <div>
+                        <strong>${club.name}</strong><br>
+                        <small>${club.description}</small>
+                    </div>
+                    <button class="delete-btn" onclick="deleteClub(${index})">Delete</button>
+                `;
+                clubList.appendChild(clubItem);
+            });
+        }
+
+        function deleteClub(index) {
+            // Remove club from the array
+            clubs.splice(index, 1);
+
+            // Update the club list display
+            displayClubs();
+        }
+        
+       
+    </script>
+</body>
+</html>
